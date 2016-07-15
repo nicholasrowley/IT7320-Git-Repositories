@@ -6,5 +6,5 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public interface ReservationInterface {
-	public ArrayList<String> makeReservation() throws RemoteException;
+	public void makeReservation(ArrayList<String> reservation) throws RemoteException;
 }
