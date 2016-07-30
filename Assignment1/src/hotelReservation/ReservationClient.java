@@ -21,7 +21,7 @@ public class ReservationClient {
 		System.out.println("Enter reservation BookedBy(letters max 50): ");
 		//save input code here
 		
-
+		System.out.println("Adding data into database...");
 	}
 
 }
