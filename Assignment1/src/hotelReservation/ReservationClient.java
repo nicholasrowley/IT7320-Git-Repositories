@@ -2,15 +2,19 @@ package hotelReservation;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.rmi.Naming;
 
 public class ReservationClient {
 	
 	public static void main(String[] args) {
 		ArrayList<String> reservationInput = new ArrayList<String>(); /* RoomType(VARCHAR max size 25), ArrivalDate(Date), DepartureDate(Date), 
 			OccupantName(VARCHAR max size 50), BookedBy(VARCHAR max size 50)*/
+		
+		ReservationInterface connection;
+		
 			//add variable for viewing here. (after add functionality)
 		
-		// TODO save reservation input to ArrayList<String> (add error checks later)
+		// Enter reservation information
 		System.out.println("Enter reservation RoomType(letters max 25): ");
 		//save input code here
 		Scanner sc1 = new Scanner(System.in);
@@ -38,7 +42,15 @@ public class ReservationClient {
 		sc4.close();
 		sc5.close();
 		
-		System.out.println("Adding data into database...");
+		try {
+			System.out.println("Adding data into database...");
+		
+			connection = (ReservationInterface) Naming.lookup("//localhost/ReservationMethods");
+			connection.makeReservation(reservationInput);
+		 } catch (Exception ex) {
+             System.out.println("Error: Unable to store results please check "
+                     + "databse connection and try again.");
+         }
 	}
 
 }
