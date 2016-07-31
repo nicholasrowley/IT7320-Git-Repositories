@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.rmi.Naming;
 
+/**
+ * This class collects information about the Reservation and saves it to the database.
+ * @author Nick Rowley
+ */
 public class ReservationClient {
 	
 	public static void main(String[] args) {
@@ -42,14 +46,17 @@ public class ReservationClient {
 		sc4.close();
 		sc5.close();
 		
+		//try and connect to database
 		try {
 			System.out.println("Adding data into database...");
 		
 			connection = (ReservationInterface) Naming.lookup("//localhost/ReservationMethods");
 			connection.makeReservation(reservationInput);
+			
 		 } catch (Exception ex) {
              System.out.println("Error: Unable to store results please check "
-                     + "databse connection and try again.");
+                     + "database connection and try again.");
+             ex.printStackTrace();
          }
 	}
 

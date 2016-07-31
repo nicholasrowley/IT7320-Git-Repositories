@@ -2,6 +2,10 @@ package hotelReservation;
 
 import java.rmi.registry.Registry;
 
+/**
+ * Server side program for this project.
+ * @author Nick Rowley
+ */
 public class ReservationServer {
 
 	public static void main(String[] args) {

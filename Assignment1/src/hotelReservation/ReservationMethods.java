@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * method declarations for RMI 
+ * @author Nick Rowley
+ */
 public class ReservationMethods extends UnicastRemoteObject implements ReservationInterface{
 
 	protected ReservationMethods() throws RemoteException {
